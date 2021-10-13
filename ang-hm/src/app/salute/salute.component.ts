@@ -5,11 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './salute.component.html',
   styleUrls: ['./salute.component.css']
 })
+
 export class SaluteComponent implements OnInit {
+
+  title : string = 'Salute component';
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
