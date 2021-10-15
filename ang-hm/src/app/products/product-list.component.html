@@ -2,13 +2,13 @@
     <div class="card-header">
         {{title}}
     </div>
-    <div class="row"  style="padding: 10px">
+    <div class="row">
         <div class="col-md-2">Filter by</div>
         <div class="col-md-4">
             <input type="text" [(ngModel)]="listFilter"/>
         </div>
     </div>
-    <div class="row" style="padding: 10px">
+    <div class="row">
         <div class="col-md-6">
             <span>Filtered by: {{listFilter}}</span>
         </div>
@@ -33,7 +33,7 @@
             </thead>
             <tbody>
                 <tr 
-                    *ngFor="let product of products"
+                    *ngFor="let product of filteredProducts"
                     [style.height.px]="rowHeight">
                     <td [style.width.px]="imageWidth">
                         <img
@@ -44,10 +44,10 @@
                             [style.margin.px]="imageMargin">
                     </td>
                     <td>{{product.productName}}</td>
-                    <td>{{product.productCode | uppercase}}</td>
+                    <td>{{product.productCode | uppercase | convertToSpaces:'-'}}</td>
                     <td>{{product.releaseDate}}</td>
                     <td>{{product.price | currency:'EUR':'symbol':'1.2-2'}}</td>
-                    <td>{{product.starRating}}</td>
+                    <td><app-star [rating]="product.rating"></app-star></td>
                 </tr>
             </tbody>
         </table>
